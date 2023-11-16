@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "e0ed1984-decf-440d-a539-7d6d6cdb626b",
+		"name": "Weather API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13883244",
+		"_collection_link": "https://galactic-spaceship-331079.postman.co/workspace/Aug_Api~c3f51218-23a2-427a-9bd9-3538c922b5a7/collection/13883244-e0ed1984-decf-440d-a539-7d6d6cdb626b?action=share&source=collection_link&creator=13883244"
+	},
+	"item": [
+		{
+			"name": "Get_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The response has all properties\", () => {",
+							"    ",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.coord).to.eql( { lon: -0.13, lat: 51.51 } );",
+							"   ",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
